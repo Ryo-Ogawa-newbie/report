@@ -34,18 +34,12 @@ var torusGeometry = new THREE.TorusGeometry( 3.3, 1.5, 24, 24 );
 var torusMaterial = new THREE. MeshToonMaterial( { color: 0xd66b00 } );
 var torus1 = new THREE.Mesh( torusGeometry, torusMaterial );
 var torus2 = new THREE.Mesh( torusGeometry, torusMaterial );
-torus.position1.set( 0.5, 0, -20);
-torus.position2.set( 0.5, 0, -20);    
+torus1.position.set( 0.5, 0, -20);
+torus2.position.set( 0.5, 0, -20);    
 scene.add( torus1 );
 scene.add( torus2 );
     
-    //円錐
-/*var coneGeometry = new THREE.ConeGeometry( 0.5, 1, 5 ); 
-//半径、高さ、底面の分割数
-var coneMaterial = new THREE. MeshPhongMaterial( {color: 0x0000ff} );
-var cone = new THREE.Mesh( coneGeometry, coneMaterial );
-cone.position.set( 0, 5, -5 );
-scene.add( cone );*/
+
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -65,7 +59,6 @@ scene.add( cone );*/
       // 箱を回転させる
       torus1.rotation.y += 0.01;
       torus2.rotation.x += 0.01;
-      // cone.rotation.x += 0.01;
       
       renderer.render(scene, camera);
     };
