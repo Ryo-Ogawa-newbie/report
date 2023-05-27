@@ -35,10 +35,16 @@ var torusGeometry2 = new THREE.TorusGeometry( 4.0, 1.5, 24, 24 );
 var torusMaterial = new THREE. MeshToonMaterial( { color: 0xd66b00 } );
 var torus1 = new THREE.Mesh( torusGeometry1, torusMaterial );
 var torus2 = new THREE.Mesh( torusGeometry2, torusMaterial );
+var torus3 = new THREE.Mesh( torusGeometry2, torusMaterial );
+var torus4 = new THREE.Mesh( torusGeometry2, torusMaterial );
 torus1.position.set( 5, 0, -20);
-torus2.position.set( -5, 0, -20);    
+torus2.position.set( -5, 0, -20); 
+torus3.position.set( 0, 7, -20);  
+torus4.position.set( 0, -7, -20);  
 scene.add( torus1 );
 scene.add( torus2 );
+scene.add( torus3 );
+scene.add( torus4 );
     
 //球
 var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
@@ -70,6 +76,8 @@ scene.add( sphere2 );
       torus2.rotation.y -= 0.01;
       sphere1.rotation.y -= 0.01;
       sphere2.rotation.y += 0.01;
+      sphere3.rotation.x -= 0.01;
+      sphere4.rotation.x += 0.01;
       
       renderer.render(scene, camera);
     };
