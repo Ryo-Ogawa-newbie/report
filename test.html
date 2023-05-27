@@ -30,7 +30,7 @@
 
 
   //ドーナッツ
-var torusGeometry1 = new THREE.TorusGeometry( 4.0, 1.5, 10, 10 ); 
+var torusGeometry1 = new THREE.TorusGeometry( 4.0, 1.5, 25, 24 ); 
 var torusGeometry2 = new THREE.TorusGeometry( 4.0, 1.5, 24, 24 ); 
 var torusMaterial = new THREE. MeshToonMaterial( { color: 0xd66b00 } );
 var torus1 = new THREE.Mesh( torusGeometry1, torusMaterial );
@@ -44,7 +44,10 @@ scene.add( torus2 );
 var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
 var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff8800,wireframe: true} );
 var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+var sphere2 = new THREE.Mesh( sphereGeometry, sphereMaterial );
 sphere1.position.set( 1.3, 0, -5 );
+sphere1.position.set( -1.3, 0, -5 );
+scene.add( sphere1 );
 scene.add( sphere1 );
     
     // 平行光源1
@@ -64,7 +67,8 @@ scene.add( sphere1 );
   
       // 箱を回転させる
       torus1.rotation.y += 0.01;
-      torus2.rotation.y += 0.01;
+      torus2.rotation.y -= 0.01;
+      sphere1.rotation.y -= 0.01;
       sphere1.rotation.y += 0.01;
       
       renderer.render(scene, camera);
